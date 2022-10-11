@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tom | Developer</title>
+    <link>/</link>
+    <description>Recent content on Tom | Developer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Oct 2022 01:34:33 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flech&#39;mot</title>
+      <link>/posts/flechmot/</link>
+      <pubDate>Tue, 11 Oct 2022 01:34:33 +0200</pubDate>
+      
+      <guid>/posts/flechmot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Follow Meal</title>
+      <link>/posts/followmeal/</link>
+      <pubDate>Tue, 11 Oct 2022 01:34:33 +0200</pubDate>
+      
+      <guid>/posts/followmeal/</guid>
+      <description>FollowMeal Mobile application for students to follow their consumptions and expenses.</description>
+    </item>
+    
+    
+  </channel>
+</rss>
