@@ -5,6 +5,16 @@
     <link>/tags/</link>
     <description>Recent content in Tags on Tom | Developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Oct 2022 01:34:33 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react native</title>
+      <link>/tags/react-native/</link>
+      <pubDate>Tue, 11 Oct 2022 01:34:33 +0200</pubDate>
+      
+      <guid>/tags/react-native/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

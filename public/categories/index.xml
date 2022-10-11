@@ -5,6 +5,16 @@
     <link>/categories/</link>
     <description>Recent content in Categories on Tom | Developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Oct 2022 01:34:33 +0200</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>app</title>
+      <link>/categories/app/</link>
+      <pubDate>Tue, 11 Oct 2022 01:34:33 +0200</pubDate>
+      
+      <guid>/categories/app/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
