@@ -1,0 +1,34 @@
+baseURL: ''
+languageCode: en-us
+title: Tom | Developer
+theme: PaperMod
+
+params:
+  homeInfoParams:
+    Title: 'Welcome !'
+    Content: 'Replace this text...'
+
+  socialIcons:
+    - name: github
+      url: 'https://github.com/strawhattom'
+    - name: linkedin
+      url: 'https://www.linkedin.com/in/tom-xie-dv/'
+  
+  ShowBreadCrumbs: true
+  ShowReadingTime: true # display reading time
+  ShowPostNavLinks: true # display nav in the bottom of the page
+
+menu:
+  main:
+    - identifier:   project
+      name:       Projects
+      url:        /projects
+      weight:     10
+    - identifier:   archives
+      name:       Archives
+      url:        /archives
+      weight:      20
+    - identifier:   contact
+      name:       Contact
+      url:        /contact
+      weight:     30
