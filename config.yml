@@ -1,12 +1,22 @@
 baseURL: ''
 languageCode: en-us
-title: Tom | Developer
+title: Portfolio - Tom X.
 theme: PaperMod
+
+languages:
+  en:
+    languageName: English
+    title: Portfolio - Tom X.
+    weight: 1
+  fr:
+    languageName : Français    
+    title: Portfolio - Tom X.
+    weight: 2
 
 params:
   homeInfoParams:
-    Title: 'Welcome !'
-    Content: 'Replace this text...'
+    Title: 'Welcome to my portfolio'
+    Content: 'I am Tom XIE a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense).'
 
   socialIcons:
     - name: github
@@ -20,7 +30,7 @@ params:
 
 menu:
   main:
-    - identifier:   project
+    - identifier:   projects
       name:       Projects
       url:        /projects
       weight:     10
