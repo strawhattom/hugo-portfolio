@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>GomoTux | Portfolio - Tom X.</title>
+<meta name="keywords" content="IA, c&#43;&#43;">
+<meta name="description" content="An IA to give the best move to do in less than 5 seconds for Gomoku games coded in C&#43;&#43;">
+<meta name="author" content="Tom XIE, Victor TARROUX, Iman TOURRES">
+<link rel="canonical" href="/posts/gomotux/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3299c596a7007118365635c056dd427dace22b7b8c1341fdef6fa6c31359ba10.css" integrity="sha256-MpnFlqcAcRg2VjXAVt1CfaziK3uME0H972&#43;mwxNZuhA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/posts/gomotux/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="GomoTux" />
+<meta property="og:description" content="An IA to give the best move to do in less than 5 seconds for Gomoku games coded in C&#43;&#43;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/gomotux/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-16T00:00:00+02:00" />
+<meta property="article:modified_time" content="2022-05-16T00:00:00+02:00" /><meta property="og:site_name" content="Portfolio - Tom X." />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GomoTux"/>
+<meta name="twitter:description" content="An IA to give the best move to do in less than 5 seconds for Gomoku games coded in C&#43;&#43;"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "GomoTux",
+      "item": "/posts/gomotux/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GomoTux",
+  "name": "GomoTux",
+  "description": "An IA to give the best move to do in less than 5 seconds for Gomoku games coded in C++",
+  "keywords": [
+    "IA", "c++"
+  ],
+  "articleBody": "Context In the second semester of my first year in engineering we had an introduction to IA and this project was done to train to apply minimax algorithm with special heuristics. Gomoku is a 15x15 board game with 2 colored pieces (black \u0026 white), to win a game, you have to align 5 pieces of your color (whether black or white) in any directions (horizontal, vertical, diagonal).\nWhy in C++ ? We decided to implement the algorithm in C++ because it is way 400 times faster than python (the main language used for data analysis and IA during our semester). Source : is-python-faster-and-lighter-than-c\nThe board Using bitboards Using a bitboard (0 or 1) may be interesting for the implementation of our game, we decided to give it a try to see how this way of thinking would go. With this board each player (board1 \u0026 board2) would have his own board and the final board would be a bitwise or operator : board1 | board2.\nin code :\n//game.hpp #include // 225 because the board is 15*15 bitset\u003c225\u003e board1; // board of the first player bitset\u003c225\u003e board2; // board of the second player //board.hpp bitset\u003c225\u003e board = board1 | board2; As long as we go the development will be more complex so we changed the board type\nChar matrix We went for a matrix of char because the board’s optimization is not very important rather than our minimax algorithm, we could change easily our board, we needed to focus on our heuristic.\n// game.hpp char **board; // board.hpp board = new char[15][15]; Char array (final decision) By looking into existing Gomoku’s IA competitions, we saw that everyone used a 1D array. It was logic because a matrix is heavier in memory than a simple char pointer.\n// game.hpp char *board; // board.hpp board = new char[225]; Heuristic Regex pattern Transforming our board into a string we could notice repeating patterns, which can be used to evaluate a state of our board.\nNB :\nline pattern - : each 15 chars, we get our pattern (1 or more) column | : each char of the pattern has 14 ’non-greedy’ (*) chars in-between diagonal \\ : each char of the pattern has 15 ’non-greedy’ (*) chars in-between diagonal / : each char of the pattern has 13 ’non-greedy’ (*) chars in-between Example with -X- pattern:\n0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 0 - - - - - - - - - - - - - - - 1 - - - - - - - - - - - - - - - 2 - - - - - - - - - - - - - - O 3 - - - - - - - - O - - - - - X 4 - - - - - - - - X - - - - - O 5 - - - - - - - - O - - - - - - 6 - - - - - - - - - - - - - - - 7 - - - - - - - - O - - - - - - 8 - - - - - - - - X - - - - - - 9 - - - - - - - - O - - - - - - 10 - - - - - - - - - - - - - - - 11 - - - - - - - - - - - - - - - 12 - - - - - - - - - - - - - - - 13 - - - - - - - - - - - - - - - 14 - - - - - - - - - - - - - X - # getBoard(board); # output : --------------------------------------------O--------O-----X--------X-----O--------O-----------------------------O--------------X--------------O-------------------------------------------------------------------------------X- # countMatch(\"-X-\"); # output : 7 We get 7 as an output whichc represent how many times this pattern occurred\nIn blue correct patterns. In red fake positives.\nWith his associated regex (column) we easily find his patterns : (?=(-.{14}X.{14}-)+)\nConstraints\nBe careful about fake positives.\nSolution\nUse regex iterator to not stop after the first occurrence.\nThe problem by testing our IA is that it took too much time to evaluate the board, we understand it with the use of regex, it converted and interpreted the regex to apply it on each substring during the iterations.\nAdjacent Another heuristic was to “see” what was happening around the current placed piece. We see each state of the plate in a depth of 1 around our piece.\nExample :\n0 1 2 3 4 5 6 7 8 9 10 11 12 13 14\r0 - - - - - - - - - - - - - - -\r1 - - - - - - - - - - - - - - -\r2 - - - - - - - - - - - - - - -\r3 - - - - - - - - O - - - - - -\r4 - - - - - - - X X O - - - - -\r5 - - - - - - O O O X - - - - -\r6 - - - - - - - X O - - - - - -\r7 - - - - - - - X O X - - - - -\r8 - - - - - - - X X - - - - - -\r9 - - - - - - - - - - - - - - -\r10 - - - - - - - - - - - - - - -\r11 - - - - - - - - - - - - - - -\r12 - - - - - - - - - - - - - - -\r13 - - - - - - - - - - - - - - -\r14 - - - - - - - - - - - - - - - The function adjacent(8,7) will look around him and apply minimax’ algorithm with one depth to get which action to do. Second heuristic Ideation We found out that our “adjacent” heuristic took too much time once again, we had a rule that the IA must return an action within 5s. Despite of the iterative deepening, each turns took more than 1 minute to compute the action. We decided to change the heuristic with some research on internet to get ideas. reference\nWe chose this method that it is efficient in time and mostly efficient in board’s evaluation.\nPattern representation The representation : (p_1,p_2,p_3,p_4) where p_i is the parameter i, we will note it (pi):\np1 : min occurrence of the pattern. For instance, if p1 = 2 then the pattern should be find in:\non a line and a diagonal\non a line and a column\nin each diagonals\n…\np2 : symbol occurrence. player’s symbol should appears p2 times.\np3 : if it is equals to 2 then the player is blocked in each side, either by the opponent or by the board size’s limit. (-1 means that the algorithm do not take bounds as argument)\np4 : jump number. It tells us if the pattern allows p4 space(s) in the player’s pieces alignment. (-1 means that the algorithm do not take bounds as argument)\nThis method do not take only one dimension but two.\nRepresentation of (1, 5, 0, 0), (0, 0, 0, 0), 10 000 points\n# 1 2 3 4 5 6 7 A . . . . . . . B . X X X X X . C . . . . . . . Representation of (2, 4, 1, 0), (0, 0, 0, 0), 700 points\n# 1 2 3 4 5 6 7 A . O . . . . . B O X X X X . . C . X . . . . . D . X . . . . . E . X . . . . . F . . . . . . . All the patterns associated with his score :\n{ {1, 5, 0, 0}, {0, 0, 0, 0}, // 10 000 {1, 4, 0, 0}, {0, 0, 0, 0}, // 700 {2, 4, 1, 0}, {0, 0, 0, 0}, // 700 {2, 4, -1, 1}, {0, 0, 0, 0}, // 700 {1, 4, 1, 0}, {1, 4, -1, 1}, // 700 {1, 4, 1, 0}, {1, 3, 0, -1}, // 500 {1, 4, -1, 1}, {1, 3, 0, -1}, // 500 {2, 3, 0, -1}, {0, 0, 0, 0}, // 300 {3, 2, 0, -1}, {0, 0, 0, 0}, // 50 {1, 3, 0, -1}, {0, 0, 0, 0}, // 20 {1, 2, 0, -1}, {0, 0, 0, 0} // 9 }; Research To find pattenrs, the algorithm will iterate through the board in this way :\nThe array includes the following structure : (n, b, s)\nn : symbol occurrences\nb : blocking number\ns : jump number\nInstantiate the array (size 4), one for each directions :\ndiagonal \\\ndiagonale /\nline -\ncolumn -\nWe browse each points two times :\none time by authorizing one space in the research\none time without authorizing spaces in the research\nFor each browse, the algorithm look into each directions (2), in both directions. It fills the array dedicated to the directon it tooks.\nComparison For the comparison, we will compare the research’ array to the pattern’s array. Indeed, patterns’ array are made of two arrays :\n(A,B,C,D), (D,E,F,G) This allows a two-dimensional pattern, with the first stored in (A,B,C,D) and the second in (D,E,F,G). When the pattern repeats identically D,E,F,G are null eandt A = 2. Indeed A represents the minimum number of occurrences.\nIf the pattern is only one dimensional: D,E,F,G are null and A = 1. However, some patterns can be repeated three times, hence A = 3.\nExemple Here is the board to evaluate :\n# 1 2 3 4 5 6 7 A X O . . . . . B O X X X X . . C . X O O . . . D . . O O . . . E . X O O . . . F . X . . . . . G . . . . . . . when the algorithm will meet the position (B,2) it will return the following array :\n[(4,1,0), (4,1,1), (1,0,0), (2,2,0)]\nBecause there are respectively :\nin the line - : 4 pieces, 0 space and 1 block in the column | : 4 pieces, 1 space and 1 block in the diagonal / : 1 piece, 0 space and 0 block in the diagonal \\ : 2 pieces, 0 space and 2 blocks Now let’s try to compare this array with these patterns:\n(1, 4, 1, 0), (1, 4, -1, 1)\nThe first pattern is found once in all 4 directions and once in all 4 directions in the second pattern: the score increases with the assigned score.\n(2, 4, 1, 0), (0, 0, 0, 0)\nWe find 1 time the first pattern. However we notice that the minimum number of occurrences is 2. The points are not assigned.\nMore deep Iterative deepening In order to be sure to respect the 5 seconds imposed but also to be able to go as far as possible in the minimax function we have added iterative deepening. The principle is to calculate at depth 1, then 2, then 3,… If the algorithm does not exceed the imposed time, it will continue in the next depth.\nThis system is counter-intuitive. Indeed it imposes to the algorithm more computation. However, the n+1 layer needs more time than all the i",
+  "wordCount" : "2056",
+  "inLanguage": "en",
+  "datePublished": "2022-05-16T00:00:00+02:00",
+  "dateModified": "2022-05-16T00:00:00+02:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Tom XIE"
+  }, {
+    "@type": "Person",
+    "name": "Victor TARROUX"
+  }, {
+    "@type": "Person",
+    "name": "Iman TOURRES"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/gomotux/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Portfolio - Tom X.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="Portfolio - Tom X. (Alt + H)">Portfolio - Tom X.</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="/fr/" title="Français"
+                            aria-label="Français">Fr</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/posts/">Posts</a></div>
+    <h1 class="post-title">
+      GomoTux
+    </h1>
+    <div class="post-meta"><span title='2022-05-16 00:00:00 +0200 CEST'>May 16, 2022</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Tom XIE, Victor TARROUX, Iman TOURRES
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="context">Context<a hidden class="anchor" aria-hidden="true" href="#context">#</a></h2>
+<p>In the second semester of my first year in engineering we had an introduction to IA and this project was done to train to apply minimax algorithm with special heuristics. <br>
+<strong>Gomoku</strong> is a 15x15 board game with 2 colored pieces (black &amp; white), to win a game, you have to align 5 pieces of your color (whether black or white) in any directions (horizontal, vertical, diagonal).</p>
+<h2 id="why-in-c-">Why in C++ ?<a hidden class="anchor" aria-hidden="true" href="#why-in-c-">#</a></h2>
+<p>We decided to implement the algorithm in <strong>C++</strong> because it is way 400 times faster than python (the main language used for data analysis and IA during our semester). <br>
+<em>Source : <a href="https://stackoverflow.com/questions/801657/is-python-faster-and-lighter-than-c">is-python-faster-and-lighter-than-c</a></em></p>
+<h2 id="the-board">The board<a hidden class="anchor" aria-hidden="true" href="#the-board">#</a></h2>
+<h3 id="using-bitboards">Using bitboards<a hidden class="anchor" aria-hidden="true" href="#using-bitboards">#</a></h3>
+<p>Using a bitboard (0 or 1) may be interesting for the implementation of our game, we decided to give it a try to see how this way of thinking would go. <br>
+With this board each player (<code>board1</code> &amp; <code>board2</code>) would have his own board and the final board would be a bitwise <code>or</code> operator : <code>board1</code> | <code>board2</code>.</p>
+<p>in code :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">//game.hpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bitset&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">// 225 because the board is 15*15
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bitset<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">225</span><span style="color:#f92672">&gt;</span> board1; <span style="color:#75715e">// board of the first player
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bitset<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">225</span><span style="color:#f92672">&gt;</span> board2; <span style="color:#75715e">// board of the second player
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//board.hpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bitset<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">225</span><span style="color:#f92672">&gt;</span> board <span style="color:#f92672">=</span> board1 <span style="color:#f92672">|</span> board2;
+</span></span></code></pre></div><p>As long as we go the development will be more complex so we changed the board type</p>
+<h3 id="char-matrix">Char matrix<a hidden class="anchor" aria-hidden="true" href="#char-matrix">#</a></h3>
+<p>We went for a matrix of <code>char</code> because the board&rsquo;s optimization is not very important rather than our minimax algorithm, we could change easily our board, we needed to focus on our heuristic.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// game.hpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>board;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// board.hpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>board <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">char</span>[<span style="color:#ae81ff">15</span>][<span style="color:#ae81ff">15</span>];
+</span></span></code></pre></div><p><img loading="lazy" src="bitboard%202D.png" alt="Dynamic memory allocation in C&#43;&#43; for 2D array"  />
+</p>
+<h3 id="char-array-final-decision">Char array (final decision)<a hidden class="anchor" aria-hidden="true" href="#char-array-final-decision">#</a></h3>
+<p>By looking into existing Gomoku&rsquo;s IA competitions, we saw that everyone used a 1D array. It was logic because a matrix is heavier in memory than a simple <code>char</code> pointer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// game.hpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>board;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// board.hpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>board <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">char</span>[<span style="color:#ae81ff">225</span>];
+</span></span></code></pre></div><p><img loading="lazy" src="bitboard%201D.png" alt="Dynamic memory allocation in C&#43;&#43; for 1D array"  />
+</p>
+<h2 id="heuristic">Heuristic<a hidden class="anchor" aria-hidden="true" href="#heuristic">#</a></h2>
+<h3 id="regex-pattern">Regex pattern<a hidden class="anchor" aria-hidden="true" href="#regex-pattern">#</a></h3>
+<p>Transforming our board into a string we could notice repeating patterns, which can be used to evaluate a state of our board.</p>
+<p><strong>NB :</strong></p>
+<ul>
+<li>line pattern <code>-</code> : each 15 chars, we get our pattern (1 or more)</li>
+<li>column <code>|</code> : each char of the pattern has 14 &rsquo;non-greedy&rsquo; (<code>*</code>) chars in-between</li>
+<li>diagonal <code>\</code> : each char of the pattern has 15 &rsquo;non-greedy&rsquo; (<code>*</code>) chars in-between</li>
+<li>diagonal <code>/</code> : each char of the pattern has 13 &rsquo;non-greedy&rsquo; (<code>*</code>) chars in-between</li>
+</ul>
+<p>Example with <code>-X-</code> pattern:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">14</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  -  -  -  -  -  -  -  -  -  -  -  -  -  -  O
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>  -  -  -  -  -  -  -  -  O  -  -  -  -  -  X
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>  -  -  -  -  -  -  -  -  X  -  -  -  -  -  O  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>  -  -  -  -  -  -  -  -  O  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>  -  -  -  -  -  -  -  -  O  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>  -  -  -  -  -  -  -  -  X  -  -  -  -  -  -  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>  -  -  -  -  -  -  -  -  O  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span> -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span> -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">13</span> -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">14</span> -  -  -  -  -  -  -  -  -  -  -  -  -  X  -
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># getBoard(board);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># output :</span>
+</span></span><span style="display:flex;"><span>--------------------------------------------O--------O-----X--------X-----O--------O-----------------------------O--------------X--------------O-------------------------------------------------------------------------------X-
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># countMatch(&#34;-X-&#34;);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># output :</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>
+</span></span></code></pre></div><p>We get 7 as an output whichc represent how many times this pattern occurred</p>
+<p><img loading="lazy" src="count.png" alt="pattern count example"  />
+</p>
+<p>In <strong>blue</strong> correct patterns. <br>
+In <strong>red</strong> fake positives.</p>
+<p>With his associated regex (column) we easily find his patterns : <code>(?=(-.{14}X.{14}-)+)</code></p>
+<p><strong>Constraints</strong></p>
+<p>Be careful about fake positives.</p>
+<p><strong>Solution</strong></p>
+<p>Use <code>regex</code> iterator to not stop after the first occurrence.</p>
+<p>The problem by testing our IA is that it took too much time to evaluate the board, we understand it with the use of regex, it converted and interpreted the regex to apply it on each substring during the iterations.</p>
+<h3 id="adjacent">Adjacent<a hidden class="anchor" aria-hidden="true" href="#adjacent">#</a></h3>
+<p>Another heuristic was to &ldquo;see&rdquo; what was happening around the current placed piece. We see each state of the plate in a depth of 1 around our piece.</p>
+<p>Example :</p>
+<pre tabindex="0"><code>   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
+0  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+1  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+2  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+3  -  -  -  -  -  -  -  -  O  -  -  -  -  -  -
+4  -  -  -  -  -  -  -  X  X  O  -  -  -  -  -
+5  -  -  -  -  -  -  O  O  O  X  -  -  -  -  -
+6  -  -  -  -  -  -  -  X  O  -  -  -  -  -  -
+7  -  -  -  -  -  -  -  X  O  X  -  -  -  -  -
+8  -  -  -  -  -  -  -  X  X  -  -  -  -  -  -
+9  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+10 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+11 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+12 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+13 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+14 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+</code></pre><p>The function <code>adjacent(8,7)</code> will look around him and apply minimax&rsquo; algorithm with one depth to get which action to do.
+<img loading="lazy" src="adjacent.png" alt="adjacent example"  />
+</p>
+<h2 id="second-heuristic">Second heuristic<a hidden class="anchor" aria-hidden="true" href="#second-heuristic">#</a></h2>
+<h3 id="ideation">Ideation<a hidden class="anchor" aria-hidden="true" href="#ideation">#</a></h3>
+<p>We found out that our &ldquo;adjacent&rdquo; heuristic took too much time once again, we had a rule that the IA must return an action within 5s. <br>
+Despite of the <strong>iterative deepening</strong>, each turns took more than 1 minute to compute the action. We decided to change the heuristic with some research on internet to get ideas. <br>
+<a href="https://github.com/yunzhu-li/blupig-gomoku">reference</a></p>
+<p>We chose this method that it is efficient in time and mostly efficient in board&rsquo;s evaluation.</p>
+<h3 id="pattern-representation">Pattern representation<a hidden class="anchor" aria-hidden="true" href="#pattern-representation">#</a></h3>
+<p>The representation : <code>(p_1,p_2,p_3,p_4)</code> where <code>p_i</code> is the parameter <code>i</code>, we will note it <code>(pi)</code>:</p>
+<ul>
+<li>
+<p><code>p1</code> : min occurrence of the pattern. For instance, if <code>p1 = 2</code> then the pattern should be find in:</p>
+<ul>
+<li>
+<p>on a line and a diagonal</p>
+</li>
+<li>
+<p>on a line and a column</p>
+</li>
+<li>
+<p>in each diagonals</p>
+</li>
+<li>
+<p>&hellip;</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>p2</code> : symbol occurrence. player&rsquo;s symbol should appears <code>p2</code> times.</p>
+</li>
+<li>
+<p><code>p3</code> : if it is equals to 2 then the player is blocked in each side, either by the opponent or by the board size&rsquo;s limit. (<code>-1</code> means that the algorithm do not take bounds as argument)</p>
+</li>
+<li>
+<p><code>p4</code> : jump number. It tells us if the pattern allows <code>p4</code> space(s) in the player&rsquo;s pieces alignment. (<code>-1</code> means that the algorithm do not take bounds as argument)</p>
+</li>
+</ul>
+<p>This method do not take only one dimension but two.</p>
+<hr>
+<p><em><strong>Representation of (1, 5, 0, 0), (0, 0, 0, 0), 10 000 points</strong></em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em><strong>Representation of (2, 4,  1,  0), (0, 0,  0,  0), 700 points</strong></em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>All the patterns associated with his score :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 10 000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 700
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>,  <span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">0</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 700
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">1</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 700
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>,  <span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">0</span>}, {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">1</span>},  <span style="color:#75715e">// 700
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>,  <span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">0</span>}, {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>,  <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>},  <span style="color:#75715e">// 500
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">1</span>}, {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>,  <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>},  <span style="color:#75715e">// 500
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>,  <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 300
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>,  <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 50
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>,  <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>},  <span style="color:#75715e">// 20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>,  <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>}, {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>}   <span style="color:#75715e">// 9
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span></code></pre></div><h3 id="research">Research<a hidden class="anchor" aria-hidden="true" href="#research">#</a></h3>
+<p>To find pattenrs, the algorithm will iterate through the board in this way :</p>
+<p>The <code>array</code> includes the following structure : <code>(n, b, s)</code></p>
+<ul>
+<li>
+<p><code>n</code> : symbol occurrences</p>
+</li>
+<li>
+<p><code>b</code> : blocking number</p>
+</li>
+<li>
+<p><code>s</code> : jump number</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Instantiate the array (size 4), one for each directions :</p>
+<ul>
+<li>
+<p>diagonal <code>\</code></p>
+</li>
+<li>
+<p>diagonale <code>/</code></p>
+</li>
+<li>
+<p>line <code>-</code></p>
+</li>
+<li>
+<p>column <code>-</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>We browse each points two times :</p>
+<ul>
+<li>
+<p>one time by authorizing one space in the research</p>
+</li>
+<li>
+<p>one time without authorizing spaces in the research</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>For each browse, the algorithm look into each directions (2), in both directions. It fills the array dedicated to the directon it tooks.</p>
+<h3 id="comparison">Comparison<a hidden class="anchor" aria-hidden="true" href="#comparison">#</a></h3>
+<p>For the comparison, we will compare the research&rsquo; array to the pattern&rsquo;s array. Indeed, patterns&rsquo; array are made of two arrays :</p>
+<ul>
+<li><code>(A,B,C,D), (D,E,F,G)</code></li>
+</ul>
+<p>This allows a two-dimensional pattern, with the first stored in <code>(A,B,C,D)</code> and the second in <code>(D,E,F,G)</code>. When the pattern repeats identically D,E,F,G are <code>null</code> eandt <code>A = 2</code>. Indeed <code>A</code> represents the minimum number of occurrences.</p>
+<p>If the pattern is only one dimensional: D,E,F,G are <code>null</code> and <code>A = 1</code>. However, some patterns can be repeated three times, hence <code>A = 3</code>.</p>
+<h3 id="exemple">Exemple<a hidden class="anchor" aria-hidden="true" href="#exemple">#</a></h3>
+<p>Here is the board to evaluate :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+</tbody>
+</table>
+<p>when the algorithm will meet the position <code>(B,2)</code> it will return the following array :</p>
+<p><code>[(4,1,0), (4,1,1), (1,0,0), (2,2,0)]</code></p>
+<p>Because there are respectively :</p>
+<ul>
+<li>in the line <code>-</code> : 4 pieces, 0 space and 1 block</li>
+<li>in the column <code>|</code> : 4 pieces, 1 space and 1 block</li>
+<li>in the diagonal <code>/</code> : 1 piece, 0 space and 0 block</li>
+<li>in the diagonal <code>\</code> : 2 pieces, 0 space and 2 blocks</li>
+</ul>
+<p>Now let&rsquo;s try to compare this array with these patterns:</p>
+<p><code>(1, 4, 1, 0), (1, 4, -1, 1)</code></p>
+<p>The first pattern is found once in all 4 directions and once in all 4 directions in the second pattern: the score increases with the assigned score.</p>
+<p><code>(2, 4, 1, 0), (0, 0, 0, 0)</code></p>
+<p>We find 1 time the first pattern. However we notice that the minimum number of occurrences is 2. The points are not assigned.</p>
+<h2 id="more-deep">More deep<a hidden class="anchor" aria-hidden="true" href="#more-deep">#</a></h2>
+<h3 id="iterative-deepening">Iterative deepening<a hidden class="anchor" aria-hidden="true" href="#iterative-deepening">#</a></h3>
+<p>In order to be sure to respect the 5 seconds imposed but also to be able to go as far as possible in the minimax function we have added iterative deepening. The principle is to calculate at depth 1, then 2, then 3,&hellip; If the algorithm does not exceed the imposed time, it will continue in the next depth.</p>
+<p>This system is counter-intuitive. Indeed it imposes to the algorithm more computation. However, the <code>n+1</code> layer needs more time than all the <code>i&lt;n</code> layers because the computation time is exponential. In fact this system make sure that the algorithm reaches the deepest possible layer within the imposed 5s.</p>
+<h3 id="negamax">Negamax<a hidden class="anchor" aria-hidden="true" href="#negamax">#</a></h3>
+<p>A minimax variant that relies on the fact that <code>max(a,b) = - min(-a,-b)</code>. It allows us to only do one operation which is to call <code>max(value, - negamax(...))</code></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="/tags/ia/">IA</a></li>
+      <li><a href="/tags/c&#43;&#43;/">c&#43;&#43;</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="/posts/arroword/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Flech&#39;mot</span>
+  </a>
+  <a class="next" href="/posts/followmeal/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Follow Meal</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="">Portfolio - Tom X.</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

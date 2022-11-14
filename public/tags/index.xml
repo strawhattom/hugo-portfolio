@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Tom | Developer</title>
+    <title>Tags on Portfolio - Tom X.</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Tom | Developer</description>
+    <description>Recent content in Tags on Portfolio - Tom X.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Oct 2022 01:34:33 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react</title>
+      <link>/tags/react/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web app</title>
+      <link>/tags/web-app/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/web-app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;</title>
+      <link>/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 16 May 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IA</title>
+      <link>/tags/ia/</link>
+      <pubDate>Mon, 16 May 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/ia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mobile app</title>
+      <link>/tags/mobile-app/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/mobile-app/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>react native</title>
       <link>/tags/react-native/</link>
-      <pubDate>Tue, 11 Oct 2022 01:34:33 +0200</pubDate>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
       
       <guid>/tags/react-native/</guid>
       <description></description>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>web app on Portfolio - Tom X.</title>
+    <link>/tags/web-app/</link>
+    <description>Recent content in web app on Portfolio - Tom X.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/web-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flech&#39;mot</title>
+      <link>/posts/arroword/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/posts/arroword/</guid>
+      <description>A web app to play the french game &amp;ldquo;Mots fléchés&amp;rdquo; coded in React</description>
+    </item>
+    
+  </channel>
+</rss>
