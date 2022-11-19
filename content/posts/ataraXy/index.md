@@ -8,6 +8,11 @@ categories: ["app"]
 author : "Tom XIE"
 ---
 
-# This post is still in building !
+# ataraXy app
 
+This post is still in building !
+
+## Context
 All of the content were done during an intership for the end of my computer science degree
+
+![source code](https://github.com/strawhattom/ataraXy)
