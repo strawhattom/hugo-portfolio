@@ -6,9 +6,10 @@ summary : "A cross-platform CRUD application to manage a fictionnal bike shop co
 tags: ["c#", "wpf","crud"]
 categories: ["app"]
 author : "Tom XIE"
+cover:
+    image: "."
+    alt: "Preview"
 ---
-
-# VeloMax
 
 This post is still in building !
 
@@ -18,10 +19,13 @@ In the second semester of my first year in engineering we had database and inter
 \
 We were in a team of 3, all of us were mainly on a **linux** distribution so we could not use WPF, we chose instead Avalonia, a WPF alternative for cross-platform desktop app.
 
-![source code](https://github.com/nami10/VeloMax)
+[Source code](https://github.com/nami10/VeloMax)
 
-## Preview
+## Other preview
 
-![mvvm schema](mvvm_schema.png)
-![dashboard](preview_1.png)
 ![bike list](preview_2.png)
+
+## MVVM design pattern
+
+We had to implement the MVVM pattern since we were using Avalonia :
+![mvvm schema](mvvm_schema.png)

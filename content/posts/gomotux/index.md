@@ -7,13 +7,12 @@ tags: ["IA", "c++"]
 categories: ["IA"]
 author : ["Tom XIE","Victor TARROUX","Iman TOURRES"]
 ---
-# GomoTux
 ## Context
 
 In the second semester of my first year in engineering we had an introduction to IA and this project was done to train to apply minimax algorithm with special heuristics. \
 **Gomoku** is a 15x15 board game with 2 colored pieces (black & white), to win a game, you have to align 5 pieces of your color (whether black or white) in any directions (horizontal, vertical, diagonal).
 
-![source code](https://github.com/nami10/GomoTUX2)
+[Source code](https://github.com/nami10/GomoTUX2)
 
 ## Why in C++ ?
 

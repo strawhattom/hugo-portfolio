@@ -1,22 +1,26 @@
 baseURL: ''
 languageCode: en-us
-title: Portfolio - Tom X.
+title: strawhattom
 theme: PaperMod
 
 languages:
   en:
     languageName: English
-    title: Portfolio - Tom X.
+    title: strawhattom
     weight: 1
   fr:
     languageName : Français    
-    title: Portfolio - Tom X.
+    title: strawhattom
     weight: 2
 
+cover:
+  hidden: false # hide everywhere but not in structured data
+  hiddenInList: false # hide on list pages and home
+  hiddenInSingle: false # hide on single page
 params:
   homeInfoParams:
     Title: 'Welcome to my portfolio'
-    Content: 'I am Tom XIE a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense).'
+    Content: 'I am Tom X. a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense).'
 
   socialIcons:
     - name: github
@@ -42,3 +46,7 @@ menu:
       name:       Contact
       url:        /contact
       weight:     30
+    - identifier:   tags
+      name:       Tags
+      url:        /tags
+      weight:     40
