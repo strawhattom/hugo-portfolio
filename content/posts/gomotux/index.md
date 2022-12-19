@@ -4,19 +4,20 @@ date: 2022-05-16T00:00:00+02:00
 draft: false
 summary : "An IA to give the best move to do in less than 5 seconds for Gomoku games coded in C++"
 tags: ["IA", "c++"]
-categories: ["IA"]
+categories: ["school project"]
 author : ["Tom XIE","Victor TARROUX","Iman TOURRES"]
 ---
+
+[Source code](https://github.com/nami10/GomoTUX2)
+
 ## Context
 
 In the second semester of my first year in engineering we had an introduction to IA and this project was done to train to apply minimax algorithm with special heuristics. \
 **Gomoku** is a 15x15 board game with 2 colored pieces (black & white), to win a game, you have to align 5 pieces of your color (whether black or white) in any directions (horizontal, vertical, diagonal).
 
-[Source code](https://github.com/nami10/GomoTUX2)
-
 ## Why in C++ ?
 
-We decided to implement the algorithm in **C++** because it is way 400 times faster than python (the main language used for data analysis and IA during our semester). \
+We decided to implement the algorithm in **C++** because it is 400 times faster than python (the main language used for data analysis and IA during our semester). \
 *Source : [is-python-faster-and-lighter-than-c](https://stackoverflow.com/questions/801657/is-python-faster-and-lighter-than-c)*
 
 ## The board

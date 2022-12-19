@@ -3,13 +3,14 @@ title: "VeloMax"
 date: 2021-05-19T00:00:00+02:00
 draft: false
 summary : "A cross-platform CRUD application to manage a fictionnal bike shop coded with Avalonia (WPF) and MySQL"
-tags: ["c#", "wpf","crud"]
-categories: ["app"]
+tags: ["c#", "wpf","crud", "app"]
+categories: ["school project"]
 author : "Tom XIE"
 # cover:
 #     image: "."
 #     alt: "Preview"
 ---
+[Source code](https://github.com/nami10/VeloMax)
 
 This post is still in building !
 
@@ -19,7 +20,7 @@ In the second semester of my first year in engineering we had database and inter
 \
 We were in a team of 3, all of us were mainly on a **linux** distribution so we could not use WPF, we chose instead Avalonia, a WPF alternative for cross-platform desktop app.
 
-[Source code](https://github.com/nami10/VeloMax)
+
 
 ## Other preview
 

@@ -4,7 +4,7 @@ date: 2022-04-09T00:00:00+02:00
 draft: false
 summary : "A food tracking mobile application coded in React Native, Express, MySQL"
 tags: ["react native", "mobile app"]
-categories: ["app"]
+categories: ["school project"]
 author : "Tom XIE"
 # cover:
 #     image: "."
@@ -12,6 +12,8 @@ author : "Tom XIE"
 ---
 
 This post is still in building !
+
+[Source code](https://github.com/steven-van/FollowMeal)
 
 ## Context
 
@@ -21,7 +23,7 @@ We decided to create **a mobile application** to make it available everywhere an
 \
 Our team was composed of 5 members, 3 (including me) from a 2 year degree of computer science and 2 other from prepatory classes. Therefore we were a diverse team.
 
-[Source code](https://github.com/steven-van/FollowMeal)
+
 
 ## Preview
 
