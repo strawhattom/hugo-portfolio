@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Portfolio - Tom X.</title>
+    <title>Tags on strawhattom</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Portfolio - Tom X.</description>
+    <description>Recent content in Tags on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>react</title>
-      <link>/tags/react/</link>
-      <pubDate>Wed, 28 Sep 2022 00:00:00 +0200</pubDate>
-      
-      <guid>/tags/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web app</title>
-      <link>/tags/web-app/</link>
-      <pubDate>Wed, 28 Sep 2022 00:00:00 +0200</pubDate>
-      
-      <guid>/tags/web-app/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 16 May 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c&#43;&#43;</title>
       <link>/tags/c&#43;&#43;/</link>
@@ -58,6 +40,33 @@
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
       
       <guid>/tags/react-native/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c#</title>
+      <link>/tags/c#/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/c#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>crud</title>
+      <link>/tags/crud/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/crud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wpf</title>
+      <link>/tags/wpf/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/wpf/</guid>
       <description></description>
     </item>
     
