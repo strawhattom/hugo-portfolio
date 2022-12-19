@@ -8,10 +8,6 @@ languages:
     languageName: English
     title: strawhattom
     weight: 1
-  fr:
-    languageName : Français    
-    title: strawhattom
-    weight: 2
 
 cover:
   hidden: false # hide everywhere but not in structured data
@@ -19,8 +15,8 @@ cover:
   hiddenInSingle: false # hide on single page
 params:
   homeInfoParams:
-    Title: 'Welcome to my portfolio'
-    Content: 'I am Tom X. a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense).'
+    Title: 'Tom Xie'
+    Content: 'Welcome to my portfolio, im a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense).'
 
   socialIcons:
     - name: github
@@ -34,17 +30,17 @@ params:
 
 menu:
   main:
-    - identifier:   projects
-      name:       Projects
-      url:        /projects
+    - identifier:   posts
+      name:       Posts
+      url:        /posts
       weight:     10
     - identifier:   archives
       name:       Archives
       url:        /archives
       weight:      20
-    - identifier:   contact
-      name:       Contact
-      url:        /contact
+    - identifier:   resume
+      name:       Resume
+      url:        /resume.pdf
       weight:     30
     - identifier:   tags
       name:       Tags

@@ -6,9 +6,9 @@ summary : "A mobile app to play quiz pre-made dedicated for students coded in Re
 tags: ["react native", "mobile app"]
 categories: ["app"]
 author : "Tom XIE"
-cover:
-    image: "."
-    alt: "Preview"
+# cover:
+#     image: "."
+#     alt: "Preview"
 ---
 
 This post is still in building !

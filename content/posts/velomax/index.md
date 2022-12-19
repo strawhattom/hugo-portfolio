@@ -6,9 +6,9 @@ summary : "A cross-platform CRUD application to manage a fictionnal bike shop co
 tags: ["c#", "wpf","crud"]
 categories: ["app"]
 author : "Tom XIE"
-cover:
-    image: "."
-    alt: "Preview"
+# cover:
+#     image: "."
+#     alt: "Preview"
 ---
 
 This post is still in building !

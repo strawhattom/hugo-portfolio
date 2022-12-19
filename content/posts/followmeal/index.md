@@ -6,9 +6,9 @@ summary : "A food tracking mobile application coded in React Native, Express, My
 tags: ["react native", "mobile app"]
 categories: ["app"]
 author : "Tom XIE"
-cover:
-    image: "."
-    alt: "Preview"
+# cover:
+#     image: "."
+#     alt: "Preview"
 ---
 
 This post is still in building !
