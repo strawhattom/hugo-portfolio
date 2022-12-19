@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on strawhattom</title>
-    <link>/posts/</link>
+    <link>http://tom-xie.fr/posts/</link>
     <description>Recent content in Posts on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 May 2022 00:00:00 +0200</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 May 2022 00:00:00 +0200</lastBuildDate><atom:link href="http://tom-xie.fr/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GomoTux</title>
-      <link>/posts/gomotux/</link>
+      <link>http://tom-xie.fr/posts/gomotux/</link>
       <pubDate>Mon, 16 May 2022 00:00:00 +0200</pubDate>
       
-      <guid>/posts/gomotux/</guid>
+      <guid>http://tom-xie.fr/posts/gomotux/</guid>
       <description>An IA to give the best move to do in less than 5 seconds for Gomoku games coded in C++</description>
     </item>
     
     <item>
       <title>Follow Meal</title>
-      <link>/posts/followmeal/</link>
+      <link>http://tom-xie.fr/posts/followmeal/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
       
-      <guid>/posts/followmeal/</guid>
+      <guid>http://tom-xie.fr/posts/followmeal/</guid>
       <description>A food tracking mobile application coded in React Native, Express, MySQL</description>
     </item>
     
     <item>
       <title>ataraXy app</title>
-      <link>/posts/ataraxy/</link>
+      <link>http://tom-xie.fr/posts/ataraxy/</link>
       <pubDate>Sat, 05 Jun 2021 00:00:00 +0200</pubDate>
       
-      <guid>/posts/ataraxy/</guid>
+      <guid>http://tom-xie.fr/posts/ataraxy/</guid>
       <description>A mobile app to play quiz pre-made dedicated for students coded in React Native, Express, Sequelize, Socket.IO</description>
     </item>
     
     <item>
       <title>VeloMax</title>
-      <link>/posts/velomax/</link>
+      <link>http://tom-xie.fr/posts/velomax/</link>
       <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>/posts/velomax/</guid>
+      <guid>http://tom-xie.fr/posts/velomax/</guid>
       <description>A cross-platform CRUD application to manage a fictionnal bike shop coded with Avalonia (WPF) and MySQL</description>
     </item>
     

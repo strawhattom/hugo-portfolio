@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>react native on strawhattom</title>
-    <link>/tags/react-native/</link>
+    <link>http://tom-xie.fr/tags/react-native/</link>
     <description>Recent content in react native on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0200</lastBuildDate><atom:link href="http://tom-xie.fr/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Follow Meal</title>
-      <link>/posts/followmeal/</link>
+      <link>http://tom-xie.fr/posts/followmeal/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
       
-      <guid>/posts/followmeal/</guid>
+      <guid>http://tom-xie.fr/posts/followmeal/</guid>
       <description>A food tracking mobile application coded in React Native, Express, MySQL</description>
     </item>
     
     <item>
       <title>ataraXy app</title>
-      <link>/posts/ataraxy/</link>
+      <link>http://tom-xie.fr/posts/ataraxy/</link>
       <pubDate>Sat, 05 Jun 2021 00:00:00 +0200</pubDate>
       
-      <guid>/posts/ataraxy/</guid>
+      <guid>http://tom-xie.fr/posts/ataraxy/</guid>
       <description>A mobile app to play quiz pre-made dedicated for students coded in React Native, Express, Sequelize, Socket.IO</description>
     </item>
     
