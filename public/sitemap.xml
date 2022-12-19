@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://tom-xie.fr/tags/c&#43;&#43;/</loc>
-    <lastmod>2022-05-16T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>http://tom-xie.fr/categories/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/crud/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/docker/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/java/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/java-ee/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/posts/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/categories/school-project/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/web-app/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/posts/webtodolist/</loc>
+    <lastmod>2022-09-29T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/c&#43;&#43;/</loc>
     <lastmod>2022-05-16T00:00:00+02:00</lastmod>
   </url><url>
     <loc>http://tom-xie.fr/posts/gomotux/</loc>
@@ -13,21 +43,6 @@
   </url><url>
     <loc>http://tom-xie.fr/tags/ia/</loc>
     <lastmod>2022-05-16T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>http://tom-xie.fr/categories/ia/</loc>
-    <lastmod>2022-05-16T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>http://tom-xie.fr/posts/</loc>
-    <lastmod>2022-05-16T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>http://tom-xie.fr/</loc>
-    <lastmod>2022-05-16T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>http://tom-xie.fr/tags/</loc>
-    <lastmod>2022-05-16T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>http://tom-xie.fr/categories/app/</loc>
-    <lastmod>2022-04-09T00:00:00+02:00</lastmod>
   </url><url>
     <loc>http://tom-xie.fr/posts/followmeal/</loc>
     <lastmod>2022-04-09T00:00:00+02:00</lastmod>
@@ -41,10 +56,13 @@
     <loc>http://tom-xie.fr/posts/ataraxy/</loc>
     <lastmod>2021-06-05T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://tom-xie.fr/tags/c#/</loc>
+    <loc>http://tom-xie.fr/categories/internship/</loc>
+    <lastmod>2021-06-05T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://tom-xie.fr/tags/app/</loc>
     <lastmod>2021-05-19T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>http://tom-xie.fr/tags/crud/</loc>
+    <loc>http://tom-xie.fr/tags/c#/</loc>
     <lastmod>2021-05-19T00:00:00+02:00</lastmod>
   </url><url>
     <loc>http://tom-xie.fr/posts/velomax/</loc>
