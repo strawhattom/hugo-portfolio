@@ -37,6 +37,12 @@ To manage our team, member's roles, we discussed about our strength and weakness
 
 For me, i was a technical person because i have created a mobile app before (during an intership) and it was the best for me to be among this team. The technical team had to choose technologies and conceptualize the app. The theorical team had to analyze students' situation and search a math formula to give a note to a user from his goals, consumptions and expenses.
 
+## Functionnalities implemented
+- Home page with dashboard (progression chart)
+- Login/register
+- Add a meal with its compositions
+- Get the score of our meal after adding it
+
 ## Outcome
 
-...
+We could make a first version of our app and show it for our final mark

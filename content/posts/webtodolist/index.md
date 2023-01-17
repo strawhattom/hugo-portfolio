@@ -15,3 +15,13 @@ This post is still in building !
 
 [Source code](https://github.com/strawhattom/WebTodoList) \
 [Docker version](https://github.com/strawhattom/docker-webtodolist)
+
+## Context
+For a grade in my OOD (Object-Oriented Development) course, we were assigned to do a short web to-do app with J2EE and MySQL (or MariaDB). 
+
+## Functionnalities implemented
+- Login/register
+- Different view for a specific role (teacher/student)
+- Register/Delete/Edit a to-do for a teacher
+- View to-dos
+- Cookies session

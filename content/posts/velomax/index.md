@@ -30,3 +30,10 @@ We were in a team of 3, all of us were mainly on a **linux** distribution so we 
 
 We had to implement the MVVM pattern since we were using Avalonia :
 ![mvvm schema](mvvm_schema.png)
+
+## Functionnalities implemented
+- Home page with dashboard
+- Search bar for any table
+- Add/Update/Delete bikes
+- Add/Update/Delete parts
+- Add/Update/Delete clients
