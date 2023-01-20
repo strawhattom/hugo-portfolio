@@ -1,4 +1,4 @@
-baseURL: 'http://tom-xie.fr'
+baseURL: "http://tom-xie.fr"
 languageCode: en-us
 title: strawhattom
 theme: PaperMod
@@ -15,34 +15,34 @@ cover:
   hiddenInSingle: false # hide on single page
 params:
   homeInfoParams:
-    Title: 'Tom Xie'
-    Content: 'Welcome to my portfolio, im a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense).'
+    Title: "Tom Xie"
+    Content: "Welcome to my portfolio, im a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense)."
 
   socialIcons:
     - name: github
-      url: 'https://github.com/strawhattom'
+      url: "https://github.com/strawhattom"
     - name: linkedin
-      url: 'https://www.linkedin.com/in/tom-xie-dv/'
-  
+      url: "https://www.linkedin.com/in/tom-xie-dv/"
+
   ShowBreadCrumbs: true
   ShowReadingTime: true # display reading time
   ShowPostNavLinks: true # display nav in the bottom of the page
 
 menu:
   main:
-    - identifier:   posts
-      name:       Posts
-      url:        /posts
-      weight:     10
-    - identifier:   archives
-      name:       Archives
-      url:        /archives
-      weight:      20
-    - identifier:   resume
-      name:       Resume
-      url:        /resume.pdf
-      weight:     30
-    - identifier:   tags
-      name:       Tags
-      url:        /tags
-      weight:     40
+    - identifier: posts
+      name: Posts
+      url: /posts
+      weight: 10
+    - identifier: archives
+      name: Archives
+      url: /archives
+      weight: 20
+    - identifier: resume
+      name: Resume
+      url: /resume.pdf
+      weight: 30
+    - identifier: tags
+      name: Tags
+      url: /tags
+      weight: 40
