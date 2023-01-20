@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>c-sharp on strawhattom</title>
+    <link>http://tom-xie.fr/tags/c-sharp/</link>
+    <description>Recent content in c-sharp on strawhattom</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 May 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://tom-xie.fr/tags/c-sharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VeloMax</title>
+      <link>http://tom-xie.fr/posts/velomax/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://tom-xie.fr/posts/velomax/</guid>
+      <description>A cross-platform CRUD application to manage a fictionnal bike shop coded with Avalonia (WPF) and MySQL</description>
+    </item>
+    
+  </channel>
+</rss>

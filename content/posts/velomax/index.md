@@ -3,7 +3,7 @@ title: "VeloMax"
 date: 2021-05-19T00:00:00+02:00
 draft: false
 summary : "A cross-platform CRUD application to manage a fictionnal bike shop coded with Avalonia (WPF) and MySQL"
-tags: ["c#", "wpf","crud", "app"]
+tags: ["c-sharp", "wpf","crud", "app"]
 categories: ["school project"]
 author : "Tom XIE"
 # cover:
