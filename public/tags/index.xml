@@ -2,116 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on strawhattom</title>
-    <link>http://tom-xie.fr/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="http://tom-xie.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>crud</title>
-      <link>http://tom-xie.fr/tags/crud/</link>
+      <link>/tags/crud/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/crud/</guid>
+      <guid>/tags/crud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>http://tom-xie.fr/tags/docker/</link>
+      <link>/tags/docker/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/docker/</guid>
+      <guid>/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>http://tom-xie.fr/tags/java/</link>
+      <link>/tags/java/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/java/</guid>
+      <guid>/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java ee</title>
-      <link>http://tom-xie.fr/tags/java-ee/</link>
+      <link>/tags/java-ee/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/java-ee/</guid>
+      <guid>/tags/java-ee/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web app</title>
-      <link>http://tom-xie.fr/tags/web-app/</link>
+      <link>/tags/web-app/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/web-app/</guid>
+      <guid>/tags/web-app/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c&#43;&#43;</title>
-      <link>http://tom-xie.fr/tags/c&#43;&#43;/</link>
+      <link>/tags/c&#43;&#43;/</link>
       <pubDate>Mon, 16 May 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/c&#43;&#43;/</guid>
+      <guid>/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IA</title>
-      <link>http://tom-xie.fr/tags/ia/</link>
+      <link>/tags/ia/</link>
       <pubDate>Mon, 16 May 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/ia/</guid>
+      <guid>/tags/ia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mobile app</title>
-      <link>http://tom-xie.fr/tags/mobile-app/</link>
+      <link>/tags/mobile-app/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/mobile-app/</guid>
+      <guid>/tags/mobile-app/</guid>
       <description></description>
     </item>
     
     <item>
       <title>react native</title>
-      <link>http://tom-xie.fr/tags/react-native/</link>
+      <link>/tags/react-native/</link>
       <pubDate>Sat, 09 Apr 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/react-native/</guid>
+      <guid>/tags/react-native/</guid>
       <description></description>
     </item>
     
     <item>
       <title>app</title>
-      <link>http://tom-xie.fr/tags/app/</link>
+      <link>/tags/app/</link>
       <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/app/</guid>
+      <guid>/tags/app/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c-sharp</title>
-      <link>http://tom-xie.fr/tags/c-sharp/</link>
+      <link>/tags/c-sharp/</link>
       <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/c-sharp/</guid>
+      <guid>/tags/c-sharp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wpf</title>
-      <link>http://tom-xie.fr/tags/wpf/</link>
+      <link>/tags/wpf/</link>
       <pubDate>Wed, 19 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/tags/wpf/</guid>
+      <guid>/tags/wpf/</guid>
       <description></description>
     </item>
     

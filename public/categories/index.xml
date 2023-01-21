@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on strawhattom</title>
-    <link>http://tom-xie.fr/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="http://tom-xie.fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>school project</title>
-      <link>http://tom-xie.fr/categories/school-project/</link>
+      <link>/categories/school-project/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/categories/school-project/</guid>
+      <guid>/categories/school-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>internship</title>
-      <link>http://tom-xie.fr/categories/internship/</link>
+      <link>/categories/internship/</link>
       <pubDate>Sat, 05 Jun 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://tom-xie.fr/categories/internship/</guid>
+      <guid>/categories/internship/</guid>
       <description></description>
     </item>
     
