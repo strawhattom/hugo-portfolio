@@ -15,7 +15,7 @@ cover:
 params:
   homeInfoParams:
     Title: "Tom Xie"
-    Content: "Welcome to my portfolio, im a 20 years old french student in computer engineering, currently studying at ESILV (France, La Défense)."
+    Content: "Welcome to my portfolio, im a 21 years old french student in computer engineering, currently studying at ESILV (France, La Défense)."
 
   socialIcons:
     - name: github
