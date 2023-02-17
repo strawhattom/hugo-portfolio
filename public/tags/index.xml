@@ -6,7 +6,52 @@
     <description>Recent content in Tags on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>express</title>
+      <link>/tags/express/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/express/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react</title>
+      <link>/tags/react/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rest api</title>
+      <link>/tags/rest-api/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/rest-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sveltekit</title>
+      <link>/tags/sveltekit/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/sveltekit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web app</title>
+      <link>/tags/web-app/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/web-app/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>crud</title>
       <link>/tags/crud/</link>
@@ -40,15 +85,6 @@
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
       
       <guid>/tags/java-ee/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web app</title>
-      <link>/tags/web-app/</link>
-      <pubDate>Thu, 29 Sep 2022 00:00:00 +0200</pubDate>
-      
-      <guid>/tags/web-app/</guid>
       <description></description>
     </item>
     

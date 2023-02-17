@@ -6,7 +6,25 @@
     <description>Recent content in web app on strawhattom</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/web-app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0200</lastBuildDate><atom:link href="/tags/web-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Battle Judge</title>
+      <link>/posts/battle-judge/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/posts/battle-judge/</guid>
+      <description>A code battle web app for Sopra Steria coded with React and Express</description>
+    </item>
+    
+    <item>
+      <title>Secure Web Dev</title>
+      <link>/posts/secure-web-dev/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0200</pubDate>
+      
+      <guid>/posts/secure-web-dev/</guid>
+      <description>A web filming location CRUD app coded with SvelteKit and Express</description>
+    </item>
+    
     <item>
       <title>WebTodoList</title>
       <link>/posts/webtodolist/</link>
